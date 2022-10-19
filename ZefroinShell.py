@@ -233,8 +233,10 @@ while True:
         elif zinput == "zep":
           print("URL?")
           urlinp = input("Zep >> ")
+          print("Name with file extension:")
+          urldown = input("Zep >> ")
           URL = urlinp
-          response = request.urlretrieve(URL, "Download.zip")
+          response = request.urlretrieve(URL, urldown)
           
         
         else:
