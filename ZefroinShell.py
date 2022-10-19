@@ -57,7 +57,7 @@ while True:
     while True:
         zinput = input("\033[1;32;40mZef >> ")
         if zinput == "help":
-            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics")
+            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\n")
         elif zinput == "print":
             prnt = input("Print >> ")
             print(prnt)
@@ -181,7 +181,7 @@ while True:
         elif zinput == "kcal":
           print("How many Kcals?")
           kcalinput = input("Kcal >> ")
-          if kcalinput.isnumeric == False:
+          if kcalinput.isnumeric() == False:
             print(error67)
             break
           else:
