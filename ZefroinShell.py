@@ -5,6 +5,7 @@ try:
   import socket
   import subprocess
   from update_check import update
+  from update_check import isUpToDate
   import urllib
   from tqdm import tqdm
   from pythonping import ping
@@ -18,8 +19,6 @@ seconds = 7
 print("Checking on updates for Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(1)
-from update_check import isUpToDate
-
 if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
    updte = input("Update available, would you like to update?\n")
    if updte == "Yes" or "yes" or "y":
@@ -202,5 +201,27 @@ while True:
   
             
             print(kcalinput + " - Producers\n" + kcal1s + " - Primary Consumers\n" + kcal2s + " - Secondary Consumers\n" + kcal3s + " - Tertiary Consumers\n" + kcal4s + " - Apex Predators")
+        
+        elif zinput == "update":
+             updtelog = 0
+              seconds = 7
+              print("Checking on updates for Zefroin...")
+              for i in tqdm(range(seconds)):
+                  time.sleep(1)
+              if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
+                 updte = input("Update available, would you like to update?\n")
+                 if updte == "Yes" or "yes" or "y":
+                    updtelog = 1
+                    update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
+              if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == True:
+                print("No updates!")
+                break
+              if updtelog == 1:
+                with open(r'\zefdump.txt', 'w') as fp:
+                  fp.write('Zefroin Updated')
+                  pass
+                os.execv(sys.argv[0], sys.argv)
+          
+        
         else:
             print(error1)
