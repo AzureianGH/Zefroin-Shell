@@ -63,7 +63,7 @@ while True:
     while True:
         zinput = input("\033[1;32;40mZef >> ")
         if zinput == "help":
-            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\n")
+            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nzep - Installs files from links\n")
         elif zinput == "print":
             prnt = input("Print >> ")
             print(prnt)
