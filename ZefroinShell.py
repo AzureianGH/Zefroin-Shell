@@ -4,6 +4,7 @@ try:
   import os
   import socket
   import subprocess
+  import sys
   from update_check import update
   from update_check import isUpToDate
   import urllib
