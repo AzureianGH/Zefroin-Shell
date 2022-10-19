@@ -5,9 +5,11 @@ try:
   import socket
   import subprocess
   import sys
+  import requests
   from update_check import update
   from update_check import isUpToDate
   import urllib
+  from urllib import request
   from tqdm import tqdm
   from pythonping import ping
 except Exception as e:
@@ -44,7 +46,7 @@ seconds = 30
 print("Starting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.01)
-print("\033[1;33;40m Zefroin Shell 1.3 COPYRIGHT OF AZUREIAN")
+print("\033[1;33;40m Zefroin Shell 1.39 COPYRIGHT OF AZUREIAN")
 print("\033[1;33;40m Powered by Python, tqdm, pythonping, and update_check!")
 error109 = "\033[1;31;40m No Statement provided! 109"
 error1 = "\033[1;31;40m Unknown Statement! 1"
@@ -225,7 +227,14 @@ while True:
                   with open(r'\zefdump.txt', 'w') as fp:
                     fp.write('Zefroin Updated')
                     pass
-                  
+        elif zinput == "github":
+          print("https://github.com/AzureianGH/Zefroin-Shell")
+         
+        elif zinput == "zep":
+          print("URL?")
+          urlinp = input("Zep >> ")
+          URL = urlinp
+          response = request.urlretrieve(URL, "Download.zip")
           
         
         else:
