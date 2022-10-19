@@ -204,7 +204,7 @@ while True:
   
             
             print(kcalinput + " - Producers\n" + kcal1s + " - Primary Consumers\n" + kcal2s + " - Secondary Consumers\n" + kcal3s + " - Tertiary Consumers\n" + kcal4s + " - Apex Predators")
-        
+            print("Don't we love biology?!")
         elif zinput == "update":
              updtelog = 0
              seconds = 7
