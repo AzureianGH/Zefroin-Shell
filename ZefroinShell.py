@@ -28,7 +28,7 @@ if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Sh
       exec(open('ZefRest.py').read())
       quit()
 if updtelog == 1:
-  with open(r'\zefdump.txt', 'w') as fp:
+  with open(r'zefdump.txt', 'w') as fp:
     fp.write('Zefroin Updated')
     pass
   
@@ -36,7 +36,7 @@ seconds = 60
 print("Mounting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.1)
-with open(r'\zefdump.txt', 'w') as fp:
+with open(r'zefdump.txt', 'w') as fp:
     fp.write('Dump file created.')
     pass
 print("Mounted.")
