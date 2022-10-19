@@ -26,6 +26,7 @@ if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Sh
       updtelog = 1
       update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
       exec(open('ZefRest.py').read())
+      quit()
 if updtelog == 1:
   with open(r'\zefdump.txt', 'w') as fp:
     fp.write('Zefroin Updated')
