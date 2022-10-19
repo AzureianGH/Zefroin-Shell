@@ -204,23 +204,23 @@ while True:
         
         elif zinput == "update":
              updtelog = 0
-              seconds = 7
-              print("Checking on updates for Zefroin...")
-              for i in tqdm(range(seconds)):
-                  time.sleep(1)
-              if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
-                 updte = input("Update available, would you like to update?\n")
-                 if updte == "Yes" or "yes" or "y":
-                    updtelog = 1
-                    update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
-              if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == True:
+             seconds = 7
+             print("Checking on updates for Zefroin...")
+             for i in tqdm(range(seconds)):
+                 time.sleep(1)
+             if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
+                updte = input("Update available, would you like to update?\n")
+                if updte == "Yes" or "yes" or "y":
+                   updtelog = 1
+                   update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
+             if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == True:
                 print("No updates!")
                 break
-              if updtelog == 1:
-                with open(r'\zefdump.txt', 'w') as fp:
-                  fp.write('Zefroin Updated')
-                  pass
-                os.execv(sys.argv[0], sys.argv)
+                if updtelog == 1:
+                  with open(r'\zefdump.txt', 'w') as fp:
+                    fp.write('Zefroin Updated')
+                    pass
+                  os.execv(sys.argv[0], sys.argv)
           
         
         else:
