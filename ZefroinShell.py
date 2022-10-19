@@ -13,7 +13,7 @@ except Exception as e:
   print("Did you install the requirements.txt?")
   time.sleep(5)
   quit()
-updtelog = False
+updtelog = 0
 seconds = 7
 print("Checking on updates for Zefroin...")
 for i in tqdm(range(seconds)):
@@ -22,12 +22,14 @@ from update_check import isUpToDate
 
 if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
    updte = input("Update available, would you like to update?\n")
-   if updte == "Yes":
+   if updte == "Yes" or "yes" or "y":
+      updtelog = 1
       update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
-      updtelog = True
-   if updtelog == True:
-    with open(r'\zefdump.txt', 'w') as fp:
-      fp.write('Zefroin updated.')
+if updtelog == 1:
+  with open(r'\zefdump.txt', 'w') as fp:
+    fp.write('Zefroin Updated')
+    pass
+  os.execv(sys.argv[0], sys.argv)
 seconds = 60
 print("Mounting Zefroin...")
 for i in tqdm(range(seconds)):
