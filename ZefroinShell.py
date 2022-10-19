@@ -19,7 +19,7 @@ updtelog = 0
 seconds = 3
 print("Checking on updates for Zefroin...")
 for i in tqdm(range(seconds)):
-    time.sleep(1)
+    time.sleep(0.1)
 if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
    updte = input("Update available, would you like to update?\n")
    if updte == "Yes" or "yes" or "y":
@@ -210,7 +210,7 @@ while True:
              seconds = 3
              print("Checking on updates for Zefroin...")
              for i in tqdm(range(seconds)):
-                 time.sleep(1)
+                 time.sleep(0.1)
              if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
                 updte = input("Update available, would you like to update?\n")
                 if updte == "Yes" or "yes" or "y":
