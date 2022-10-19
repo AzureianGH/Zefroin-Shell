@@ -1,3 +1,6 @@
+import tqdm
+import time
+
 print("Restarting...")
 seconds = 12
 for i in tqdm(range(seconds)):
