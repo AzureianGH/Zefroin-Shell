@@ -34,7 +34,7 @@ if updtelog == 1:
     fp.write('Zefroin Updated')
     pass
   
-seconds = 60
+seconds = 2
 print("Mounting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.1)
