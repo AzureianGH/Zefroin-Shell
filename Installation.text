@@ -1,0 +1,5 @@
+Step 1: Install PIP and Python 3.
+Step 2: Call the directory with "requirements.txt"
+Step 3: Run "pip install -r requirements.txt"
+Step 4: Run ZefroinShell.py
+Step 5: Type "help" for commands
