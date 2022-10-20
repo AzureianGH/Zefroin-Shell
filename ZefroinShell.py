@@ -1,5 +1,6 @@
 
 try:
+  import re
   import time
   import os
   import socket
@@ -20,18 +21,23 @@ except Exception as e:
 updtelog = 0
 zfgm = 0
 seconds = 3
-print("Checking on updates for Zefroin...")
-for i in tqdm(range(seconds)):
-    time.sleep(0.1)
-if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
-   updte = input("Update available, would you like to update?\n")
-   if updte == "Yes" or "yes" or "y":
-      updtelog = 1
-      update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
-      exec(open('ZefRest.py').read())
-      quit()
-   else:
+while True:
+  print("Checking on updates for Zefroin...")
+  for i in tqdm(range(seconds)):
+      time.sleep(0.1)
+  if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
+     updte = input("Update available, would you like to update?\n")
+  if updte == "No" or "no" or "n":
     print("Launching Zefroin (Outdated)")
+    break
+  elif updte == "Yes" or "yes" or "y":
+     updtelog = 1
+     update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
+     exec(open('ZefRest.py').read())
+     quit()
+  
+  else:
+       break
 if updtelog == 1:
   with open(r'zefdump.txt', 'w') as fp:
     fp.write('Zefroin Updated')
@@ -66,7 +72,7 @@ while True:
     while True:
         zinput = input("\033[1;32;40mZef >> ")
         if zinput == "help":
-            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nDownl - Downloads files from links\n")
+            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nDownl - Downloads files from links\nzep install - Installs a package\nrunzf - Run selected package.\n")
         elif zinput == "print":
             prnt = input("Print >> ")
             print(prnt)
@@ -241,14 +247,22 @@ while True:
           URL = urlinp
           response = request.urlretrieve(URL, urldown)
           
-        elif zinput == "zep install zfgm":
-            URL = 'https://raw.githubusercontent.com/AzureianGH/Zfslb/main/zfgm.zf'
-            response = request.urlretrieve(URL, 'zfgm.zf')
-            zfgm = 1
+        elif zinput == "zep install":
+            print("Link to Raw ZF file")
+            URL = input("Zep >> ")
+            print("Name of file? (With .zf)")
+            URLname = input("Zep >> ")
+            response = request.urlretrieve(URL, URLname)
+            
 
-        elif zinput == "zfgm" and zfgm == 1:
-            exec(open('zfgm.zf').read())
+        elif zinput == "runzf":
+            print("Name of Package? (without file extension)")
+            nop1 = input("Runzf >> ")
+            nop = str(nop1)
+            exec(open(nop + '.zf').read())
 
+
+        
         else:
             print(error1)
 
