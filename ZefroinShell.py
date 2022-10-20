@@ -26,7 +26,8 @@ while True:
   for i in tqdm(range(seconds)):
       time.sleep(0.1)
   if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
-     updte = input("Update available, would you like to update?\n")
+    print("Update available, would you like to update?\n")
+    updte = input("Zerminal >> ")
   if updte == "No" or "no" or "n":
     print("Launching Zefroin (Outdated)")
     break
@@ -55,7 +56,7 @@ seconds = 30
 print("Starting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.01)
-print("\033[1;33;40m Zefroin Shell 1.8 COPYRIGHT OF AZUREIAN")
+print("\033[1;33;40m Zefroin Shell 2 COPYRIGHT OF AZUREIAN")
 print("\033[1;33;40m Powered by Python, tqdm, pythonping, and more!")
 error109 = "\033[1;31;40m No Statement provided! 109"
 error1 = "\033[1;31;40m Unknown Statement! 1"
