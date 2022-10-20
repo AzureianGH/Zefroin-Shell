@@ -18,6 +18,7 @@ except Exception as e:
   time.sleep(5)
   quit()
 updtelog = 0
+zfgm = 0
 seconds = 3
 print("Checking on updates for Zefroin...")
 for i in tqdm(range(seconds)):
@@ -48,7 +49,7 @@ seconds = 30
 print("Starting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.01)
-print("\033[1;33;40m Zefroin Shell 1.39 COPYRIGHT OF AZUREIAN")
+print("\033[1;33;40m Zefroin Shell 1.8 COPYRIGHT OF AZUREIAN")
 print("\033[1;33;40m Powered by Python, tqdm, pythonping, and update_check!")
 error109 = "\033[1;31;40m No Statement provided! 109"
 error1 = "\033[1;31;40m Unknown Statement! 1"
@@ -65,7 +66,7 @@ while True:
     while True:
         zinput = input("\033[1;32;40mZef >> ")
         if zinput == "help":
-            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nzep - Installs files from links\n")
+            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nDownl - Downloads files from links\n")
         elif zinput == "print":
             prnt = input("Print >> ")
             print(prnt)
@@ -232,14 +233,22 @@ while True:
         elif zinput == "github":
           print("https://github.com/AzureianGH/Zefroin-Shell")
          
-        elif zinput == "zep":
+        elif zinput == "downl":
           print("URL?")
-          urlinp = input("Zep >> ")
+          urlinp = input("Downl >> ")
           print("Name with file extension:")
-          urldown = input("Zep >> ")
+          urldown = input("Downl >> ")
           URL = urlinp
           response = request.urlretrieve(URL, urldown)
           
-        
+        elif zinput == "zep install zfgm":
+            URL = 'https://raw.githubusercontent.com/AzureianGH/Zfslb/main/zfgm.zf'
+            response = request.urlretrieve(URL, 'zfgm.zf')
+            zfgm = 1
+
+        elif zinput == "zfgm" and zfgm == 1:
+            exec(open('zfgm.zf').read())
+
         else:
             print(error1)
+
