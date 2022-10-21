@@ -18,31 +18,30 @@ except Exception as e:
   print("Did you install the requirements.txt?")
   time.sleep(5)
   quit()
+def updatezf():
+    exec(open('ZefRest.py').read())
 updtelog = 0
 zfgm = 0
 seconds = 3
-while True:
-  print("Checking on updates for Zefroin...")
-  for i in tqdm(range(seconds)):
+
+print("Checking on updates for Zefroin...")
+for i in tqdm(range(seconds)):
       time.sleep(0.1)
-  if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
-    print("Update available, would you like to update?\n")
-    updte = input("Zerminal >> ")
-  if updte == "No" or "no" or "n":
-    print("Launching Zefroin (Outdated)")
-    break
-  elif updte == "Yes" or "yes" or "y":
-     updtelog = 1
-     update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
-     exec(open('ZefRest.py').read())
-     quit()
-  
-  else:
-       break
-if updtelog == 1:
-  with open(r'zefdump.txt', 'w') as fp:
-    fp.write('Zefroin Updated')
-    pass
+if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
+    update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
+    print("Updates Required! Would you like to restart now?")
+    updte = input("Zerminal|> ")
+    if updte == "Yes" or "yes" or "y":
+        print("Updating...")
+        updatezf()
+        quit()
+    elif updte == "No" or "no" or "n":
+        print("Updates will install at the next restart.")
+
+        
+        
+
+    
   
 seconds = 2
 print("Mounting Zefroin...")
@@ -56,7 +55,7 @@ seconds = 30
 print("Starting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.01)
-print("\033[1;33;40m Zefroin Shell 2 COPYRIGHT OF AZUREIAN")
+print("\033[1;33;40m Zefroin Shell 2.1 COPYRIGHT OF AZUREIAN")
 print("\033[1;33;40m Powered by Python, tqdm, pythonping, and more!")
 error109 = "\033[1;31;40m No Statement provided! 109"
 error1 = "\033[1;31;40m Unknown Statement! 1"
@@ -223,20 +222,21 @@ while True:
              print("Checking on updates for Zefroin...")
              for i in tqdm(range(seconds)):
                  time.sleep(0.1)
+             
              if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
-                updte = input("Update available, would you like to update?\n")
+                update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
+                print("Updates Required! Would you like to restart now?")
+                updte = input("Zerminal|> ")
                 if updte == "Yes" or "yes" or "y":
-                   updtelog = 1
-                   update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
-                   exec(open('ZefRest.py').read())
-                   quit()
-             if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == True:
-                print("No updates!")
-                break
-                if updtelog == 1:
-                  with open(r'\zefdump.txt', 'w') as fp:
-                    fp.write('Zefroin Updated')
-                    pass
+                    print("Updating...")
+                    updatezf()
+                    quit()
+                elif updte == "No" or "no" or "n":
+                    print("Updates will install at the next restart.")
+             elif isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == True:
+                print("All caught up!")
+             else:
+                print("Unable to reach update service! 95")
         elif zinput == "github":
           print("https://github.com/AzureianGH/Zefroin-Shell")
          
