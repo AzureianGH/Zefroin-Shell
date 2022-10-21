@@ -31,22 +31,10 @@ for i in tqdm(range(seconds)):
       time.sleep(0.1)
 if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
     update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
-    print("Updates Required! Would you like to restart now?")
-    updte = input("Zerminal|> ")
-    if updte == "Yes" or "yes" or "y":
-        print("Updating...")
-        run("ZefRest.py")
-        quit()
+    print("Updates Required!")
+    run("ZefRest.py")
+    quit()
 
-        
-    elif updte == "No" or "no" or "n":
-        print("Updates will install at the next restart.")
-
-        
-        
-
-    
-  
 seconds = 2
 print("Mounting Zefroin...")
 for i in tqdm(range(seconds)):
@@ -59,7 +47,7 @@ seconds = 30
 print("Starting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.01)
-print("\033[1;33;40m Zefroin Shell 2.21 COPYRIGHT OF AZUREIAN")
+print("\033[1;33;40m Zefroin Shell 2.25 COPYRIGHT OF AZUREIAN")
 print("\033[1;33;40m Powered by Python, tqdm, pythonping, and more!")
 error109 = "\033[1;31;40m No Statement provided! 109"
 error1 = "\033[1;31;40m Unknown Statement! 1"
