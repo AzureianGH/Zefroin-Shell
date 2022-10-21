@@ -35,7 +35,7 @@ if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Sh
     run("ZefRest.py")
     quit()
 else:
-  print("No Updates! Or " + )
+  print("No Updates! Or " + error95)
 seconds = 2
 print("Mounting Zefroin...")
 for i in tqdm(range(seconds)):
