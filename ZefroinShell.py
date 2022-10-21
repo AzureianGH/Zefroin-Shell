@@ -3,7 +3,6 @@ try:
   import re
   import time
   import os
-  import ZefRest
   import socket
   import subprocess
   import sys
