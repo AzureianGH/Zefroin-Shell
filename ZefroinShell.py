@@ -48,7 +48,7 @@ seconds = 30
 print("Starting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.01)
-print("\033[1;33;40m Zefroin Shell 2.32 COPYRIGHT OF AZUREIAN")
+print("\033[1;33;40m Zefroin Shell 2.4 COPYRIGHT OF AZUREIAN")
 print("\033[1;33;40m Powered by Python, tqdm, pythonping, and more!")
 error109 = "\033[1;31;40m No Statement provided! 109"
 error1 = "\033[1;31;40m Unknown Statement! 1"
@@ -65,7 +65,7 @@ while True:
     while True:
         zinput = input("\033[1;32;40mZef >> ")
         if zinput == "help":
-            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nDownl - Downloads files from links\nzep install - Installs a package\nzf - Run selected package.\n")
+            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nDownl - Downloads files from links\nzep install - Installs a package\nzf - Run selected package.\nclear - Clears console")
         elif zinput == "print":
             prnt = input("Print >> ")
             print(prnt)
@@ -252,7 +252,8 @@ while True:
             nop1 = input("Runzf >> ")
             nop = str(nop1)
             exec(open(nop + '.zf').read())
-
+        elif zinput == "clear":
+          clear()
 
         
         else:
