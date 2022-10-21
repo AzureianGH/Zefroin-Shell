@@ -241,13 +241,14 @@ while True:
         elif zinput == "zep install":
             print("Link to Raw ZF file")
             URL = input("Zep >> ")
-            print("Name of file? (With .zf)")
+            print("Name of file? (Without extension)")
             URLname = input("Zep >> ")
-            response = request.urlretrieve(URL, URLname)
+            URLzef = URLname + ".zf"
+            response = request.urlretrieve(URL, URLzef)
             
 
         elif zinput == "zf":
-            print("Name of Package? (without file extension)")
+            print("Name of Package? (Without extension)")
             nop1 = input("Runzf >> ")
             nop = str(nop1)
             exec(open(nop + '.zf').read())
