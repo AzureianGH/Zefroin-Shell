@@ -19,7 +19,7 @@ except Exception as e:
   time.sleep(5)
   quit()
 def updatezf():
-    exec(open('ZefRest.py').read())
+    f = open("ZefRest.py", "r")
     quit()
 
 
