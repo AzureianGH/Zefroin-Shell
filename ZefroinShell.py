@@ -217,16 +217,11 @@ while True:
              
              if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
                 update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
-                print("Updates Required! Would you like to restart now?")
-                updte = input("Zerminal|> ")
-                if updte == "Yes" or "yes" or "y":
-                    print("Updating...")
-                    run("ZefRest.py")
-                    quit()
-
-                    
-                elif updte == "No" or "no" or "n":
-                    print("Updates will install at the next restart.")
+                print("Updates Required!")
+                run("ZefRest.py")
+                quit()
+                
+                
              elif isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == True:
                 print("All caught up!")
              else:
