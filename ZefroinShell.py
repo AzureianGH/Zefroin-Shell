@@ -20,9 +20,7 @@ except Exception as e:
   print("Did you install the requirements.txt?")
   time.sleep(5)
   quit()
-def updatezf():
-    open("ZefroinShell.py", "r")
-    quit()
+
 
 
 seconds = 3
@@ -36,7 +34,9 @@ if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Sh
     updte = input("Zerminal|> ")
     if updte == "Yes" or "yes" or "y":
         print("Updating...")
-        updatezf()
+        open("ZefroinShell.py", "r")
+        quit()
+
         
     elif updte == "No" or "no" or "n":
         print("Updates will install at the next restart.")
@@ -232,7 +232,9 @@ while True:
                 updte = input("Zerminal|> ")
                 if updte == "Yes" or "yes" or "y":
                     print("Updating...")
-                    updatezf()
+                    open("ZefroinShell.py", "r")
+                    quit()
+
                     
                 elif updte == "No" or "no" or "n":
                     print("Updates will install at the next restart.")
