@@ -21,7 +21,7 @@ except Exception as e:
   time.sleep(5)
   quit()
 def updatezf():
-    call(["python", "ZefRest.py"])
+    open("ZefroinShell.py", "r")
     quit()
 
 
