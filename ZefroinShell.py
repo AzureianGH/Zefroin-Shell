@@ -4,6 +4,7 @@ try:
   import time
   import os
   import socket
+  from subprocess import Popen
   import subprocess
   import sys
   import requests
@@ -33,7 +34,7 @@ if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Sh
     updte = input("Zerminal|> ")
     if updte == "Yes" or "yes" or "y":
         print("Updating...")
-        open("ZefroinShell.py", "r")
+        Popen('ZefRest.py')
         quit()
 
         
@@ -231,7 +232,7 @@ while True:
                 updte = input("Zerminal|> ")
                 if updte == "Yes" or "yes" or "y":
                     print("Updating...")
-                    open("ZefroinShell.py", "r")
+                    Popen('ZefRest.py')
                     quit()
 
                     
