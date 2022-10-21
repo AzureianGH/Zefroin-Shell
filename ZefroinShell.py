@@ -21,7 +21,9 @@ except Exception as e:
   time.sleep(5)
   quit()
 
-
+def run(runfile):
+  with open(runfile,"r") as rnf:
+    exec(rnf.read())
 
 seconds = 3
 
@@ -34,7 +36,7 @@ if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Sh
     updte = input("Zerminal|> ")
     if updte == "Yes" or "yes" or "y":
         print("Updating...")
-        Popen('ZefRest.py')
+        run("ZefRest.py")
         quit()
 
         
@@ -232,7 +234,7 @@ while True:
                 updte = input("Zerminal|> ")
                 if updte == "Yes" or "yes" or "y":
                     print("Updating...")
-                    Popen('ZefRest.py')
+                    run("ZefRest.py")
                     quit()
 
                     
