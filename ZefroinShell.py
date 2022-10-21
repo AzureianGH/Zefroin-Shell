@@ -246,7 +246,7 @@ while True:
             response = request.urlretrieve(URL, URLname)
             
 
-        elif zinput == "runzf":
+        elif zinput == "zf":
             print("Name of Package? (without file extension)")
             nop1 = input("Runzf >> ")
             nop = str(nop1)
