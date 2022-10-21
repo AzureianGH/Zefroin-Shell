@@ -19,7 +19,7 @@ except Exception as e:
   time.sleep(5)
   quit()
 def updatezf():
-    f = open("ZefRest.py", "r")
+    open("ZefRest.py", "r")
     quit()
 
 
@@ -56,7 +56,7 @@ seconds = 30
 print("Starting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.01)
-print("\033[1;33;40m Zefroin Shell 2 COPYRIGHT OF AZUREIAN")
+print("\033[1;33;40m Zefroin Shell 2.2 COPYRIGHT OF AZUREIAN")
 print("\033[1;33;40m Powered by Python, tqdm, pythonping, and more!")
 error109 = "\033[1;31;40m No Statement provided! 109"
 error1 = "\033[1;31;40m Unknown Statement! 1"
