@@ -19,7 +19,7 @@ except Exception as e:
   print("Did you install the requirements.txt?")
   time.sleep(5)
   quit()
-
+error95 = "Unable to reach update service! 95"
 def run(runfile):
   with open(runfile,"r") as rnf:
     exec(rnf.read())
@@ -34,7 +34,8 @@ if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Sh
     print("Updates Required!")
     run("ZefRest.py")
     quit()
-
+else:
+  print("No Updates! Or " + )
 seconds = 2
 print("Mounting Zefroin...")
 for i in tqdm(range(seconds)):
