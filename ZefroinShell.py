@@ -48,7 +48,7 @@ seconds = 30
 print("Starting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.01)
-print("\033[1;33;40m Zefroin Shell 2.25 COPYRIGHT OF AZUREIAN")
+print("\033[1;33;40m Zefroin Shell 2.32 COPYRIGHT OF AZUREIAN")
 print("\033[1;33;40m Powered by Python, tqdm, pythonping, and more!")
 error109 = "\033[1;31;40m No Statement provided! 109"
 error1 = "\033[1;31;40m Unknown Statement! 1"
