@@ -253,7 +253,7 @@ while True:
             nop = str(nop1)
             exec(open(nop + '.zf').read())
         elif zinput == "clear":
-          clear()
+          print('\x1b[2J')
 
         
         else:
