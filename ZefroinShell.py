@@ -4,7 +4,6 @@ try:
   import time
   import os
   import socket
-  from subprocess import Popen
   import subprocess
   import sys
   import requests
