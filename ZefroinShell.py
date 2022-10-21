@@ -20,8 +20,9 @@ except Exception as e:
   quit()
 def updatezf():
     exec(open('ZefRest.py').read())
-updtelog = 0
-zfgm = 0
+    quit()
+
+
 seconds = 3
 
 print("Checking on updates for Zefroin...")
@@ -34,7 +35,7 @@ if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Sh
     if updte == "Yes" or "yes" or "y":
         print("Updating...")
         updatezf()
-        quit()
+        
     elif updte == "No" or "no" or "n":
         print("Updates will install at the next restart.")
 
@@ -55,7 +56,7 @@ seconds = 30
 print("Starting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.01)
-print("\033[1;33;40m Zefroin Shell 2.11 COPYRIGHT OF AZUREIAN")
+print("\033[1;33;40m Zefroin Shell 2 COPYRIGHT OF AZUREIAN")
 print("\033[1;33;40m Powered by Python, tqdm, pythonping, and more!")
 error109 = "\033[1;31;40m No Statement provided! 109"
 error1 = "\033[1;31;40m Unknown Statement! 1"
@@ -230,7 +231,7 @@ while True:
                 if updte == "Yes" or "yes" or "y":
                     print("Updating...")
                     updatezf()
-                    quit()
+                    
                 elif updte == "No" or "no" or "n":
                     print("Updates will install at the next restart.")
              elif isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == True:
