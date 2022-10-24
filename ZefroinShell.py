@@ -15,12 +15,12 @@ try:
   from tqdm import tqdm
   from pythonping import ping
 def zepinst():
-    print("Link to Raw ZF file")
-    URL = input("Zep >> ")
-    print("Name of file? (Without extension)")
-    URLname = input("Zep >> ")
-    URLzef = URLname + ".zf"
-    response = request.urlretrieve(URL, URLzef)
+  print("Link to Raw ZF file")
+  URL = input("Zep >> ")
+  print("Name of file? (Without extension)")
+  URLname = input("Zep >> ")
+  URLzef = URLname + ".zf"
+  response = request.urlretrieve(URL, URLzef)
 def zfp():
   print("Name of Package? (Without extension)")
   nop1 = input("Runzf >> ")
@@ -259,7 +259,7 @@ while True:
         elif zinput == "zf":
             zfp()
         elif zinput == "clear":
-          clr()
+            clr()
 
         
         else:
