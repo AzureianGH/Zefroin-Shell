@@ -14,6 +14,20 @@ try:
   from urllib import request
   from tqdm import tqdm
   from pythonping import ping
+def zepinst():
+    print("Link to Raw ZF file")
+    URL = input("Zep >> ")
+    print("Name of file? (Without extension)")
+    URLname = input("Zep >> ")
+    URLzef = URLname + ".zf"
+    response = request.urlretrieve(URL, URLzef)
+def zfp():
+  print("Name of Package? (Without extension)")
+  nop1 = input("Runzf >> ")
+  nop = str(nop1)
+  exec(open(nop + '.zf').read())
+def clr():
+  print('\x1b[2J')
 except Exception as e:
   print(e)
   print("Did you install the requirements.txt?")
@@ -239,21 +253,13 @@ while True:
           response = request.urlretrieve(URL, urldown)
           
         elif zinput == "zep install":
-            print("Link to Raw ZF file")
-            URL = input("Zep >> ")
-            print("Name of file? (Without extension)")
-            URLname = input("Zep >> ")
-            URLzef = URLname + ".zf"
-            response = request.urlretrieve(URL, URLzef)
+            zepinst()
             
 
         elif zinput == "zf":
-            print("Name of Package? (Without extension)")
-            nop1 = input("Runzf >> ")
-            nop = str(nop1)
-            exec(open(nop + '.zf').read())
+            zfp()
         elif zinput == "clear":
-          print('\x1b[2J')
+          clr()
 
         
         else:
