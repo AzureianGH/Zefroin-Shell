@@ -14,12 +14,22 @@ try:
   from urllib import request
   from tqdm import tqdm
   from pythonping import ping
+  import logging
 except Exception as e:
   print(e)
   print("Did you install the requirements.txt?")
   time.sleep(5)
   quit()
 error95 = "Unable to reach update service! 95"
+logging.basicConfig(filename="newfile.log",
+                    format='%(asctime)s %(message)s',
+                    filemode='w')
+ 
+
+logger = logging.getLogger()
+ 
+
+logger.setLevel(logging.DEBUG)
 def run(runfile):
   with open(runfile,"r") as rnf:
     exec(rnf.read())
@@ -254,7 +264,7 @@ while True:
             exec(open(nop + '.zf').read())
         elif zinput == "clear":
             print('\x1b[2J')
-
+        
         
         else:
             print(error1)
