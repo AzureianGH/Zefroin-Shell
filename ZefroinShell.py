@@ -98,14 +98,14 @@ while True:
             prnt = input("Print >> ")
             print(prnt)
         elif zinput == "":
-            print(error109)
+            error109()
         
         elif zinput == "loop":
             intimes = 0
             loop = input("Loop >> ")
             times = input("How many times? >> ")
             if times.isnumeric() == False:
-                print(error67)
+                error67()
                 break
                 
             else: 
@@ -118,11 +118,11 @@ while True:
                     intimes = 0
                     addtimes = 0
                 elif intimes < 0:
-                    print(error32)
+                    error32()
                     intimes = 0
                     addtimes = 0
                 elif intimes == -0:
-                    print(error18)
+                    error18()
                     intimes = 0
                     addtimes = 0
                 
@@ -150,22 +150,22 @@ while True:
             else:
                 mathoper = 5
             if mathoper == 0:
-                print(errorunk)
+                errorunk()
                 iftrue = 0
             elif mathoper == 5:
                 iftrue = 0
-                print(error45)
+                error45()
             if iftrue == 1:
                 print("Number 1: ")
                 math1 = input("Math >> ")
                 print("Number 2: ")
                 math2 = input("Math >> ")
                 if math1.isnumeric() == False:
-                    print(error67)
+                    error67()
                     break
                 else:
                     if math2.isnumeric() == False:
-                        print(error67)
+                        error67()
                         break
                     else:
                         math1i = int(math1)
@@ -201,7 +201,7 @@ while True:
                             # /
                         
                         else:
-                            print(errorunk)
+                            errorunk()
         elif zinput == "end":
             quit()
         elif zinput == "msdos":
@@ -218,7 +218,7 @@ while True:
           print("How many Kcals?")
           kcalinput = input("Kcal >> ")
           if kcalinput.isnumeric() == False:
-            print(error67)
+            error67()
             break
           else:
             kcal = float(kcalinput)
@@ -285,5 +285,5 @@ while True:
         
         
         else:
-            print(error1)
+            error1()
 
