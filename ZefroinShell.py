@@ -60,17 +60,35 @@ for i in tqdm(range(seconds)):
     time.sleep(0.01)
 print("\033[1;33;40m Zefroin Shell 2.4 COPYRIGHT OF AZUREIAN")
 print("\033[1;33;40m Powered by Python, tqdm, pythonping, and more!")
-error109 = "\033[1;31;40m No Statement provided! 109" + logger.error("No Statement provided! 109")
-error1 = "\033[1;31;40m Unknown Statement! 1" + logger.error("Unknown Statement! 1")
+def error109():
+  print("\033[1;31;40m No Statement provided! 109")
+  logger.error("No Statement provided! 109")
+def error1():
+  print("\033[1;31;40m Unknown Statement! 1")
+  logger.error("Unknown Statement! 1")
 error56a = 0
-error32 = "\033[1;31;40m Unable to parse negative value! 32" + logger.error("Unable to parse negative value! 32")
-error18 = "\033[1;31;40m Value input can't be negative! 18" + logger.error("Value input can't be negative! 18")
-error0 = "\033[1;31;40m No Feature! 0" + logger.error("No Feature! 0")
-warning1 = "\033[1;31;40m Warning! This feature is experimental and may result in loops or possible breaks from the code!" + logger.warning("Warning! This feature is experimental and may result in loops or possible breaks from the code!")
-errorunk = "\033[1;31;40m Unknown error has occured! UNK" + logger.critical("Unknown error has occured! UNK")
-error45 = "\033[1;31;40m No sign entered! 45" + logger.error("No sign entered! 45")
+def error32():
+  print("\033[1;31;40m Unable to parse negative value! 32")
+  logger.error("Unable to parse negative value! 32")
+def error18():
+  print("\033[1;31;40m Value input can't be negative! 18")
+  logger.error("Value input can't be negative! 18")
+def error0():
+  print("\033[1;31;40m No Feature! 0") 
+  logger.error("No Feature! 0")
+def warning1():
+  print("\033[1;31;40m Warning! This feature is experimental and may result in loops or possible breaks from the code!")
+  logger.warning("Warning! This feature is experimental and may result in loops or possible breaks from the code!")
+def errorunk():
+  print("\033[1;31;40m Unknown error has occured! UNK")
+  logger.critical("Unknown error has occured! UNK")
+def error45():
+  print("\033[1;31;40m No sign entered! 45")
+  logger.error("No sign entered! 45")
 iftrue = 1
-error67 = "\033[1;31;40m Value can not be letters! 67" + logger.error("Value can not be letters! 67")
+def error67():
+  print("\033[1;31;40m Value can not be letters! 67")
+  logger.error("Value can not be letters! 67")
 while True:
     while True:
         zinput = input("\033[1;32;40mZef >> ")
