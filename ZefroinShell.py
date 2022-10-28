@@ -1,4 +1,14 @@
+def run(runfile):
+  with open(runfile,"r") as rnf:
+    exec(rnf.read())
+    
 
+with open('zf.nzf') as file:
+    contents = file.read()
+    search_word = "0"
+    if search_word in contents:
+        run("zfr.py")
+        quit()
 try:
   import re
   import time
@@ -30,9 +40,7 @@ logger = logging.getLogger()
  
 
 logger.setLevel(logging.DEBUG)
-def run(runfile):
-  with open(runfile,"r") as rnf:
-    exec(rnf.read())
+
 
 seconds = 3
 
@@ -282,8 +290,15 @@ while True:
             exec(open(nop + '.zf').read())
         elif zinput == "clear":
             print('\x1b[2J')
-        
-        
+        elif zinput == "sleep":
+          print("Sleep (seconds)")
+          slep = input("Sleep >> ")
+          if slep.isnumeric():
+            print("Sleeping for " + slep + " seconds.")
+            time.sleep(slep)
+            print("Awaking...")
+          else:
+            error67()
         else:
             error1()
 
