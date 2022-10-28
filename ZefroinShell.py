@@ -292,10 +292,11 @@ while True:
             print('\x1b[2J')
         elif zinput == "sleep":
           print("Sleep (seconds)")
-          slep = input("Sleep >> ")
-          if slep.isnumeric():
-            print("Sleeping for " + slep + " seconds.")
-            time.sleep(slep)
+          slepr = input("Sleep >> ")
+          if slepr.isnumeric():
+            print("Sleeping for " + slepr + " seconds.")
+            slepa = int(slepr)
+            time.sleep(slepa)
             print("Awaking...")
           else:
             error67()
