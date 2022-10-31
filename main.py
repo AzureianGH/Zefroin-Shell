@@ -20,7 +20,6 @@ try:
   from update_check import update
   from update_check import isUpToDate
   import urllib
-  from subprocess import call
   from urllib import request
   from tqdm import tqdm
   from pythonping import ping
@@ -48,8 +47,8 @@ if betatest == False:
   print("Checking on updates for Zefroin...")
   for i in tqdm(range(seconds)):
         time.sleep(0.1)
-  if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
-      update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
+  if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/main.py") == False:
+      update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/main.py")
       print("Updates Required!")
       run("ZefRest.py")
       quit()
@@ -253,14 +252,14 @@ while True:
              for i in tqdm(range(seconds)):
                  time.sleep(0.1)
              
-             if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == False:
-                update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py")
+             if isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/main.py") == False:
+                update(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/main.py")
                 print("Updates Required!")
                 run("ZefRest.py")
                 quit()
                 
                 
-             elif isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/ZefroinShell.py") == True:
+             elif isUpToDate(__file__, "https://raw.githubusercontent.com/AzureianGH/Zefroin-Shell/main/main.py") == True:
                 print("All caught up!")
              else:
                 print("Unable to reach update service! 95")
