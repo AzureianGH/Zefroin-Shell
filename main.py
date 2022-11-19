@@ -538,7 +538,7 @@ while True:
           plt.ylabel(yaxlab)
       
     # Display plot
-          plt.show()
+          
           print("X = " + xs + "\n Y = " + ys)
           plt.show()
           break
