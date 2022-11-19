@@ -524,7 +524,7 @@ while True:
           fig = plt.figure()
           ax = fig.add_axes([0,0,1,1])
           
-          plt.bar(x, y)
+          
           ys = str(y)
           xs = str(x)
           plt.figure(figsize = (len(x), len(y)))
