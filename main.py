@@ -1,22 +1,53 @@
+import sys
+import subprocess
+import time
+print("Checking packages...")
+try:
+  from pythonping import ping
+except:
+  subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+'pythonping'])
+  print("pythonping not found... Filling requirement.")
+try:
+  import requests
+except:
+  subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+'requests'])
+  print("requests not found... Filling requirement.")
+try:
+  from tqdm import tqdm
+except:
+  subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+'tqdm'])
+  print("tqdm... Filling requirement.")
+try:
+  from update_check import update
+  from update_check import isUpToDate
+except:
+  subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+'update_check'])
+  print("update_check not found... Filling requirement.")
+try:
+  import matplotlib.pyplot as plt
+except:
+  subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+'matplotlib'])
+  print("matplotlib not found... Filling requirement.")
+try:
+  import numpy as np
+except:
+  subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+'numpy'])
+  print("numpy not found... Filling requirement.")
+print("All packages found.")
 def run(runfile):
   with open(runfile,"r") as rnf:
     exec(rnf.read())
-    
-
-with open('zf.nzf') as file:
-    contents = file.read()
-    search_word = "0"
-    if search_word in contents:
-        run("zfr.py")
-        quit()
 try:
-  import re
-  import time
-  import os
-  import socket
-  import subprocess
-  import sys
+  import os  
   import requests
+  import matplotlib.pyplot as plt
+  import numpy as np
   from update_check import update
   from update_check import isUpToDate
   import urllib
@@ -66,8 +97,8 @@ seconds = 30
 print("Starting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.01)
-print("\033[1;33;40m Zefroin Shell 2.7 COPYRIGHT OF AZUREIAN")
-print("\033[1;33;40m Powered by Python, tqdm, pythonping, and more!")
+print("\033[1;33;40m Zefroin Shell 3.9 COPYRIGHT OF AZUREIAN")
+print("\033[1;33;40m Powered by Python!")
 def error109():
   print("\033[1;31;40m No Statement provided! 109")
   logger.error("No Statement provided! 109")
@@ -81,12 +112,15 @@ def error32():
 def error18():
   print("\033[1;31;40m Value input can't be negative! 18")
   logger.error("Value input can't be negative! 18")
+def error26():
+  print("\033[1;31;40m Input is too large! 26")
+  logger.error("Input is too large! 26")
 def error0():
   print("\033[1;31;40m No Feature! 0") 
   logger.error("No Feature! 0")
 def warning1():
-  print("\033[1;31;40m Warning! This feature is experimental and may result in loops or possible breaks from the code!")
-  logger.warning("Warning! This feature is experimental and may result in loops or possible breaks from the code!")
+  print("\033[1;31;40m Warning! This feature is experimental and may result in loops or possible breaks from the code! w1")
+  logger.warning("Warning! This feature is experimental and may result in loops or possible breaks from the code! w1")
 def errorunk():
   print("\033[1;31;40m Unknown error has occured! UNK")
   logger.critical("Unknown error has occured! UNK")
@@ -97,11 +131,40 @@ iftrue = 1
 def error67():
   print("\033[1;31;40m Value can not be letters! 67")
   logger.error("Value can not be letters! 67")
+def addlabels(x,y):
+    for i in range(len(x)):
+        plt.text(i, y[i], y[i], ha = 'center')
+def valuelabel(x,y):
+    for i in range(len(x)):
+        plt.text(i,y[i],y[i], ha = 'center',
+                 bbox = dict(facecolor = 'cyan', alpha =0.8))
+def deferror(errorcode):
+  if errorcode == "109":
+    error109()
+  if errorcode == "1":
+    error1()
+  if errorcode == "32":
+    error32()
+  if errorcode == "18":
+    error18()
+  if errorcode == "26":
+    error26()
+  if errorcode == "0":
+    error0()
+  if errorcode == "w1":
+    warning1()
+  if errorcode == "unk":
+    errorunk()
+  if errorcode == "45":
+    error45()
+  if errorcode == "67":
+    error67()
+    
 while True:
     while True:
         zinput = input("\033[1;32;40mZef >> ")
         if zinput == "help":
-            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nDownl - Downloads files from links\nzep install - Installs a package\nzf - Run selected package\nclear - Clears console\nsleep - Sleeps a certain amount of time\n")
+            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nDownl - Downloads files from links\nzep install - Installs a package\nzf - Run selected package\nclear - Clears console\nsleep - Sleeps a certain amount of time\nerlist - Lists error\ncrash - What do you think it does?\nscatter - Plots a scatter plot\nlinegraph - Plots a line graph\nbargraph - Plots a bar graph\n")
         elif zinput == "print":
             prnt = input("Print >> ")
             print(prnt)
@@ -288,18 +351,197 @@ while True:
             nop1 = input("Runzf >> ")
             nop = str(nop1)
             exec(open(nop + '.zf').read())
+          
         elif zinput == "clear":
             print('\x1b[2J')
+          
         elif zinput == "sleep":
           print("Sleep (seconds)")
           slepr = input("Sleep >> ")
           if slepr.isnumeric():
-            print("Sleeping for " + slepr + " seconds.")
             slepa = int(slepr)
-            time.sleep(slepa)
-            print("Awaking...")
+            if slepa <= 9223372036.854775:
+              print("Sleeping for " + slepr + " seconds.")
+              time.sleep(slepa)
+              print("Awaking...")
+            else:
+              error26()
           else:
             error67()
+        elif zinput == "erlist":
+          print("Error code?")
+          ercode = input("Er >> ")
+          deferror(ercode)
+        elif zinput == "crash":
+          print("Confirm? Y/N")
+          critconf = input("Crash >> ")
+          if critconf == "Y" or "y" or "yes":
+            logger.critical("User Confirmed Crash || Zefroin Dieded")
+            quit()
+          else:
+            break
+        elif zinput == "Scatter":
+          xint = input("X-Axis Number\nScatter >> ")
+          
+          breaker = False
+          yp = ""
+          xp = ""
+          x=[]
+          y=[]
+          xint = int(xint)
+          x.append(xint)
+          while True:
+            xp = str(x)
+           
+            xam = input("Add another X?\nType a Number, or say 'No'.\n" + xp + "\nScatter >> ")
+            if xam.isalpha() == False:
+              xam = int(xam)
+              x.append(xam)
+            else:
+              breaker = True
+              break
+            if breaker:
+              break
+          breaker = False
+          yint = input("Y-Axis Number\nScatter >> ")
+          yint = int(yint)
+          y.append(yint)
+          while True:
+            yp = str(y)
+            yam = input("Add another Y?\nType a Number, or say 'No'.\n" + yp + "\nScatter >> ")
+            if yam.isalpha() == False:
+              yam = int(yam)
+              y.append(yam)
+            else:
+              breaker = True
+              break
+            if breaker:
+              break
+              
+          
+          xaxlab = input("X-Axis Name\nScatter >> ")
+          yaxlab = input("Y-Axis Name\nScatter >> ")
+          plottitle = input("Title\nScatter >> ")
+          plt.plot(x, y, 'ro')
+          plt.xlabel(xaxlab)
+          plt.ylabel(yaxlab)
+          plt.title(plottitle)
+          xs = str(x)
+          ys = str(y)
+          print("X = " + xs + "\n Y = " + ys)
+          plt.show()
+          break
+        elif zinput == "linegraph":
+          xint = input("X-Axis Number\nLine >> ")
+          
+          breaker = False
+          yp = ""
+          xp = ""
+          x=[]
+          y=[]
+          xint = int(xint)
+          x.append(xint)
+          while True:
+            xp = str(x)
+           
+            xam = input("Add another X?\nType a Number, or say 'No'.\n" + xp + "\nLine >> ")
+            if xam.isalpha() == False:
+              xam = int(xam)
+              x.append(xam)
+            else:
+              breaker = True
+              break
+            if breaker:
+              break
+          breaker = False
+          yint = input("Y-Axis Number\nLine >> ")
+          yint = int(yint)
+          y.append(yint)
+          while True:
+            yp = str(y)
+            yam = input("Add another Y?\nType a Number, or say 'No'.\n" + yp + "\nLine >> ")
+            if yam.isalpha() == False:
+              yam = int(yam)
+              y.append(yam)
+            else:
+              breaker = True
+              break
+            if breaker:
+              break
+              
+          
+          xaxlab = input("X-Axis Name\nLine >> ")
+          yaxlab = input("Y-Axis Name\nLine >> ")
+          plottitle = input("Title\nLine >> ")
+          plt.plot(x, y)
+          plt.xlabel(xaxlab)
+          plt.ylabel(yaxlab)
+          plt.title(plottitle)
+          xs = str(x)
+          ys = str(y)
+          print("X = " + xs + "\n Y = " + ys)
+          plt.show()
+          break
+        elif zinput == "bargraph":
+          xint = input("X-Axis Data\nBar >> ")
+          
+          breaker = False
+          yp = ""
+          xp = ""
+          x=[]
+          y=[]
+          
+          x.append(xint)
+          while True:
+            xp = str(x)
+           
+            xam = input("Add another X?\nType data, or say '.end'.\n" + xp + "\nBar >> ")
+            if xam == ".end":
+              breaker = True
+              break
+            if breaker: break
+            x.append(xam)  
+          breaker = False
+          yint = input("Y-Axis Number\nBar >> ")
+          yint = int(yint)
+          y.append(yint)
+          while True:
+            yp = str(y)
+            yam = input("Add another Y?\nType a Number, or say 'No'.\n" + yp + "\nBar >> ")
+            if yam.isalpha() == False:
+              yam = int(yam)
+              y.append(yam)
+            else:
+              breaker = True
+              break
+            if breaker:
+              break
+              
+          
+          xaxlab = input("X-Axis Name\nBar >> ")
+          yaxlab = input("Y-Axis Name\nBar >> ")
+          plottitle = input("Title\nBar >> ")
+          fig = plt.figure()
+          ax = fig.add_axes([0,0,1,1])
+          
+          plt.bar(x, y)
+          ys = str(y)
+          xs = str(x)
+          plt.figure(figsize = (len(x), len(y)))
+          plt.bar(weight, students, color= 'orange')
+      
+
+          valuelabel(weight, students)       
+     
+          # Define labels
+          plt.xlabel("Weight of the students")
+          plt.ylabel("Number of students")
+      
+    # Display plot
+          plt.show()
+          print("X = " + xs + "\n Y = " + ys)
+          plt.show()
+          break
         else:
             error1()
 
