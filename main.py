@@ -528,14 +528,14 @@ while True:
           ys = str(y)
           xs = str(x)
           plt.figure(figsize = (len(x), len(y)))
-          plt.bar(weight, students, color= 'orange')
+          plt.bar(x, y, color= 'orange')
       
 
-          valuelabel(weight, students)       
+          valuelabel(x, y)       
      
           # Define labels
-          plt.xlabel("Weight of the students")
-          plt.ylabel("Number of students")
+          plt.xlabel(xaxlab)
+          plt.ylabel(yaxlab)
       
     # Display plot
           plt.show()
