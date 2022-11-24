@@ -84,7 +84,7 @@ def show_exception_and_exit(exc_type, exc_value, tb):
 
 sys.excepthook = show_exception_and_exit
 seconds = 3
-betatest = True
+betatest = False
 if betatest == False:
   print("Checking on updates for Zefroin...")
   for i in tqdm(range(seconds)):
@@ -108,7 +108,7 @@ seconds = 30
 print("Starting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.01)
-print("\033[1;33;40m Zefroin Shell 4.06 COPYRIGHT OF AZUREIAN")
+print("\033[1;33;40m Zefroin Shell 4.1 COPYRIGHT OF AZUREIAN")
 print("\033[1;33;40m Powered by Python!")
 def error109():
   print("\033[1;31;40m No Statement provided! 109")
@@ -585,6 +585,8 @@ while True:
           zim = []
           while True:
             zimp = input("Add letter or type '.end'")
+            if zimp == ".end":
+                break
             if zimp == "a" or zim == "A":
               zim.append("DG")
             elif zimp == "b" or zim == "B":
@@ -696,6 +698,9 @@ while True:
             break
           for roots,dirs,files in os.walk(nam1):
                 print(roots,len(dirs),len(files))
+        elif zinput == "restart":
+            run("ZefRest.py")
+            quit()
         else:
             error1()
 
