@@ -1,6 +1,7 @@
 import sys
 import subprocess
 import time
+
 print("Checking packages...")
 try:
   from pythonping import ping
@@ -55,6 +56,8 @@ try:
   from tqdm import tqdm
   from pythonping import ping
   import logging
+  import glob
+  import os.path
 except Exception as e:
   print(e)
   print("Did you install the requirements.txt?")
@@ -71,9 +74,17 @@ logger = logging.getLogger()
 
 logger.setLevel(logging.DEBUG)
 
+def show_exception_and_exit(exc_type, exc_value, tb):
+    import traceback
+    
+    ectp = traceback.print_exception(exc_type, exc_value, tb)
+    print("Fatal Error: -1")
+    run("ZefRest.py")
+    logger.critical(ectp)
 
+sys.excepthook = show_exception_and_exit
 seconds = 3
-betatest = False
+betatest = True
 if betatest == False:
   print("Checking on updates for Zefroin...")
   for i in tqdm(range(seconds)):
@@ -129,8 +140,12 @@ def error45():
   logger.error("No sign entered! 45")
 iftrue = 1
 def error67():
-  print("\033[1;31;40m Value can not be letters! 67")
-  logger.error("Value can not be letters! 67")
+  print("\033[1;31;40m Value can not be Alphic! 67")
+  logger.error("Value can not be Alphic! 67")
+def error88():
+  print("\033[1;31;40m Function Overload! Cannot convert string to Char! 88")
+  logger.error("Function Overload! Cannot convert string to Char! 88")
+
 def addlabels(x,y):
     for i in range(len(x)):
         plt.text(i, y[i], y[i], ha = 'center')
@@ -141,30 +156,46 @@ def valuelabel(x,y):
 def deferror(errorcode):
   if errorcode == "109":
     error109()
-  if errorcode == "1":
+  elif errorcode == "1":
     error1()
-  if errorcode == "32":
+  elif errorcode == "32":
     error32()
-  if errorcode == "18":
+  elif errorcode == "18":
     error18()
-  if errorcode == "26":
+  elif errorcode == "26":
     error26()
-  if errorcode == "0":
+  elif errorcode == "0":
     error0()
-  if errorcode == "w1":
+  elif errorcode == "w1":
     warning1()
-  if errorcode == "unk":
+  elif errorcode == "unk":
     errorunk()
-  if errorcode == "45":
+  elif errorcode == "45":
     error45()
-  if errorcode == "67":
+  elif errorcode == "67":
     error67()
-    
+  elif errorcode == "88":
+    error88()
+  else:
+    print("No error code found!")
+defaultnm = "~/Zef"
+osname = sys.platform
+ostype = ""
+if osname == "linux":
+  ostype = "linux"
+elif osname == "Windows":
+  ostype = "Windows"
+elif osname == "Mac OS X":
+  ostype = "Mac"
+else:
+  ostype = "Other"
+zfname = defaultnm
 while True:
     while True:
-        zinput = input("\033[1;32;40mZef >> ")
+        
+        zinput = input("\033[1;32;40m"+zfname+" >> ")
         if zinput == "help":
-            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nDownl - Downloads files from links\nzep install - Installs a package\nzf - Run selected package\nclear - Clears console\nsleep - Sleeps a certain amount of time\nerlist - Lists error\ncrash - What do you think it does?\nscatter - Plots a scatter plot\nlinegraph - Plots a line graph\nbargraph - Plots a bar graph\n")
+            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nDownl - Downloads files from links\nzep install - Installs a package\nzf - Run selected package\nclear - Clears console\nsleep - Sleeps a certain amount of time\nerlist - Lists error\ncrash - What do you think it does?\nscatter - Plots a scatter plot\nlinegraph - Plots a line graph\nbargraph - Plots a bar graph\nsortalpha - Sorts alpha text files\n")
         elif zinput == "print":
             prnt = input("Print >> ")
             print(prnt)
@@ -521,8 +552,7 @@ while True:
           xaxlab = input("X-Axis Name\nBar >> ")
           yaxlab = input("Y-Axis Name\nBar >> ")
           plottitle = input("Title\nBar >> ")
-          fig = plt.figure()
-          ax = fig.add_axes([0,0,1,1])
+          
           
           
           ys = str(y)
@@ -536,12 +566,136 @@ while True:
           # Define labels
           plt.xlabel(xaxlab)
           plt.ylabel(yaxlab)
-      
+          plt.title(plottitle)
     # Display plot
           
           print("X = " + xs + "\n Y = " + ys)
           plt.show()
           break
+        elif zinput == "sortalpha":
+          
+          dirl = input("File location? (With Extension)\nSort >> ")
+
+          FileName = (dirl)
+          data=open(FileName).readlines()
+          data.sort()
+          for i in range(len(data)):
+              print(data[i])
+        elif zinput == "zimmer":
+          zim = []
+          while True:
+            zimp = input("Add letter or type '.end'")
+            if zimp == "a" or zim == "A":
+              zim.append("DG")
+            elif zimp == "b" or zim == "B":
+              zim.append("DG")
+            elif zimp == "c" or zim == "C":
+              zim.append("DG")
+            elif zimp == "d" or zim == "D":
+              zim.append("DG")
+            elif zimp == "e" or zim == "E":
+              zim.append("DG")
+            elif zimp == "f" or zim == "F":
+              zim.append("DG")
+            elif zimp == "g" or zim == "G":
+              zim.append("DG")
+            elif zimp == "h" or zim == "H":
+              zim.append("DG")
+            elif zimp == "i" or zim == "I":
+              zim.append("DG")
+            elif zimp == "j" or zim == "J":
+              zim.append("DG")
+            elif zimp == "k" or zim == "K":
+              zim.append("DG")
+            elif zimp == "l" or zim == "L":
+              zim.append("DG")
+            elif zimp == "m" or zim == "M":
+              zim.append("DG")
+            elif zimp == "n" or zim == "N":
+              zim.append("DG")
+            elif zimp == "o" or zim == "O":
+              zim.append("DG")
+            elif zimp == "p" or zim == "P":
+              zim.append("DG")
+            elif zimp == "q" or zim == "Q":
+              zim.append("DG")
+            elif zimp == "r" or zim == "R":
+              zim.append("DG")
+            elif zimp == "s" or zim == "S":
+              zim.append("DG")
+            elif zimp == "t" or zim == "T":
+              zim.append("DG")
+            elif zimp == "u" or zim == "U":
+              zim.append("DG")
+            elif zimp == "v" or zim == "V":
+              zim.append("DG")
+            elif zimp == "w" or zim == "W":
+              zim.append("DG")
+            elif zimp == "x" or zim == "X":
+              zim.append("DG")
+            elif zimp == "y" or zim == "Y":
+              zim.append("DG")
+            elif zimp == "z" or zim == "Z":
+              zim.append("DG")
+            elif zimp == "1":
+              zim.append("DG")
+            elif zimp == "2":
+              zim.append("DG")
+            elif zimp == "3":
+              zim.append("DG")
+            elif zimp == "4":
+              zim.append("DG")
+            elif zimp == "5":
+              zim.append("DG")
+            elif zimp == "6":
+              zim.append("DG")
+            elif zimp == "7":
+              zim.append("DG")
+            elif zimp == "8":
+              zim.append("DG")
+            elif zimp == "9":
+              zim.append("DG")
+            elif zimp == "0":
+              zim.append("DG")
+            else:
+              error88()
+            print(zim)
+        elif zinput == "dir":
+          der = os.listdir()
+          print(der)
+        elif zinput == "cd":
+          der = input("Location? Or press return\nCd >> ")
+          if der == "" or der == " ":
+            break
+          elif der == "^":
+            parent_dir = os.path.split(os.getcwd())[0]
+            der = parent_dir
+          os.chdir(der)
+          zfname = der
+        elif zinput == "mkdir":
+          der = input("Name? Or press return\nMk >> ")
+          os.mkdir(der)
+          print("Dir '"+der+"' Created.")
+        elif zinput == "rndir":
+          nam1 = input("Dir name? Or press return\nRn >> ")
+          if nam1 == "" or nam1 == " ":
+            break
+          nam2 = input("New name?")
+          os.rename(nam1,nam2)
+          print("'"+nam1+"' Renamed to '"+nam2+"'")
+        elif zinput == "rmdir":
+          import shutil
+          nam1 = input("Dir name? Or press return\nRm >> ")
+          if nam1 == "" or nam1 == " ":
+            break
+          shutil.rmtree(nam1)
+          print("Deleted '"+nam1+"'")
+        elif zinput == "wlkdir":
+          nam1 = input("Dir name? Or press return\nWlk >> ")
+          if nam1 == "" or nam1 == " ":
+            break
+          for roots,dirs,files in os.walk(nam1):
+                print(roots,len(dirs),len(files))
         else:
             error1()
 
