@@ -108,7 +108,7 @@ seconds = 30
 print("Starting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.01)
-print("\033[1;33;40m Zefroin Shell 3.9 COPYRIGHT OF AZUREIAN")
+print("\033[1;33;40m Zefroin Shell 4.06 COPYRIGHT OF AZUREIAN")
 print("\033[1;33;40m Powered by Python!")
 def error109():
   print("\033[1;31;40m No Statement provided! 109")
@@ -195,7 +195,7 @@ while True:
         
         zinput = input("\033[1;32;40m"+zfname+" >> ")
         if zinput == "help":
-            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nDownl - Downloads files from links\nzep install - Installs a package\nzf - Run selected package\nclear - Clears console\nsleep - Sleeps a certain amount of time\nerlist - Lists error\ncrash - What do you think it does?\nscatter - Plots a scatter plot\nlinegraph - Plots a line graph\nbargraph - Plots a bar graph\nsortalpha - Sorts alpha text files\n")
+            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nDownl - Downloads files from links\nzep install - Installs a package\nzf - Run selected package\nclear - Clears console\nsleep - Sleeps a certain amount of time\nerlist - Lists error\ncrash - What do you think it does?\nscatter - Plots a scatter plot\nlinegraph - Plots a line graph\nbargraph - Plots a bar graph\nsortalpha - Sorts alpha text files\nzimmer - Translate into Zimmerman note\ndir - Lists files in an area\ncd - Calls directory\nmkdir - Makes directory\nrndir - Renames directory\nrmdir - Removes directory\nwlkdir - Walks along a directory and sub-directory\n")
         elif zinput == "print":
             prnt = input("Print >> ")
             print(prnt)
@@ -588,75 +588,75 @@ while True:
             if zimp == "a" or zim == "A":
               zim.append("DG")
             elif zimp == "b" or zim == "B":
-              zim.append("DG")
+              zim.append("AA")
             elif zimp == "c" or zim == "C":
-              zim.append("DG")
+              zim.append("DX")
             elif zimp == "d" or zim == "D":
-              zim.append("DG")
+              zim.append("FD")
             elif zimp == "e" or zim == "E":
-              zim.append("DG")
+              zim.append("AF")
             elif zimp == "f" or zim == "F":
-              zim.append("DG")
+              zim.append("FG")
             elif zimp == "g" or zim == "G":
-              zim.append("DG")
+              zim.append("FX")
             elif zimp == "h" or zim == "H":
-              zim.append("DG")
+              zim.append("GD")
             elif zimp == "i" or zim == "I":
-              zim.append("DG")
+              zim.append("DV")
             elif zimp == "j" or zim == "J":
-              zim.append("DG")
+              zim.append("GG")
             elif zimp == "k" or zim == "K":
-              zim.append("DG")
+              zim.append("GX")
             elif zimp == "l" or zim == "L":
-              zim.append("DG")
+              zim.append("AX")
             elif zimp == "m" or zim == "M":
-              zim.append("DG")
+              zim.append("VA")
             elif zimp == "n" or zim == "N":
-              zim.append("DG")
+              zim.append("DF")
             elif zimp == "o" or zim == "O":
-              zim.append("DG")
+              zim.append("VD")
             elif zimp == "p" or zim == "P":
-              zim.append("DG")
+              zim.append("VF")
             elif zimp == "q" or zim == "Q":
-              zim.append("DG")
+              zim.append("VG")
             elif zimp == "r" or zim == "R":
-              zim.append("DG")
+              zim.append("AV")
             elif zimp == "s" or zim == "S":
-              zim.append("DG")
+              zim.append("VV")
             elif zimp == "t" or zim == "T":
-              zim.append("DG")
+              zim.append("VX")
             elif zimp == "u" or zim == "U":
-              zim.append("DG")
+              zim.append("XA")
             elif zimp == "v" or zim == "V":
-              zim.append("DG")
+              zim.append("XD")
             elif zimp == "w" or zim == "W":
-              zim.append("DG")
+              zim.append("XF")
             elif zimp == "x" or zim == "X":
-              zim.append("DG")
+              zim.append("XG")
             elif zimp == "y" or zim == "Y":
-              zim.append("DG")
+              zim.append("XV")
             elif zimp == "z" or zim == "Z":
-              zim.append("DG")
+              zim.append("XX")
             elif zimp == "1":
-              zim.append("DG")
+              zim.append("DA")
             elif zimp == "2":
-              zim.append("DG")
+              zim.append("AD")
             elif zimp == "3":
-              zim.append("DG")
+              zim.append("FA")
             elif zimp == "4":
-              zim.append("DG")
+              zim.append("FF")
             elif zimp == "5":
-              zim.append("DG")
+              zim.append("AG")
             elif zimp == "6":
-              zim.append("DG")
+              zim.append("FV")
             elif zimp == "7":
-              zim.append("DG")
+              zim.append("GA")
             elif zimp == "8":
-              zim.append("DG")
+              zim.append("GF")
             elif zimp == "9":
-              zim.append("DG")
+              zim.append("DD")
             elif zimp == "0":
-              zim.append("DG")
+              zim.append("GV")
             else:
               error88()
             print(zim)
