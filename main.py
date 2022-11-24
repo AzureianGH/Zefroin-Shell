@@ -384,7 +384,7 @@ while True:
             exec(open(nop + '.zf').read())
           
         elif zinput == "clear":
-            print('\x1b[2J')
+            print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
           
         elif zinput == "sleep":
           print("Sleep (seconds)")
@@ -411,7 +411,7 @@ while True:
             quit()
           else:
             break
-        elif zinput == "Scatter":
+        elif zinput == "scatter":
           xint = input("X-Axis Number\nScatter >> ")
           
           breaker = False
