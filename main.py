@@ -4,6 +4,12 @@ import time
 
 print("Checking packages...")
 try:
+  from sympy import solve
+except:
+  subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+'sympy'])
+  print("sympy not found... Filling requirement.")
+try:
   from pythonping import ping
 except:
   subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
@@ -45,6 +51,7 @@ def run(runfile):
   with open(runfile,"r") as rnf:
     exec(rnf.read())
 try:
+  from sympy import solve
   import os  
   import requests
   import matplotlib.pyplot as plt
@@ -108,7 +115,7 @@ seconds = 30
 print("Starting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.01)
-print("\033[1;33;40m Zefroin Shell 4.1 COPYRIGHT OF AZUREIAN")
+print("\033[1;33;40m Zefroin Shell 4.12 COPYRIGHT OF AZUREIAN")
 print("\033[1;33;40m Powered by Python!")
 def error109():
   print("\033[1;31;40m No Statement provided! 109")
