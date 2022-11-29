@@ -94,16 +94,30 @@ def show_exception_and_exit(exc_type, exc_value, tb):
     print("Fatal Error: -1")
     run("ZefRest.py")
     logger.critical(ectp)
+true = True
+false = False
+
+betatest = False
+
+if betatest == True:
+  print("Beta test mode is currently activated.")
 def isAdmin():
     try:
-        is_admin = (os.getuid() == 0)
+        if betatest == True:
+          is_admin = True
+        else:
+          is_admin = (os.getuid() == 0)
     except AttributeError:
-        is_admin = ctypes.windll.shell32.IsUserAnAdmin() != 0
+        if betatest == True:
+          is_admin = True
+        else:
+          is_admin = ctypes.windll.shell32.IsUserAnAdmin() != 0
     return is_admin
 sys.excepthook = show_exception_and_exit
 #(Check) Updates Zefroin
 seconds = 3
-betatest = False
+
+  
 if betatest == False:
   print("Checking on updates for Zefroin...")
   for i in tqdm(range(seconds)):
@@ -255,7 +269,7 @@ zfname = defaultnm
 # CODE STARTS HERE
 #
 #
-if !isAdmin():
+if isAdmin() == False:
   print("Local Access Privileges Detected, some commands may be unavailable!")
 else:
   print("Full Access Privileges Detected, all commands are available!")
