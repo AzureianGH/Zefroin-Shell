@@ -1,7 +1,8 @@
 import sys
 import subprocess
 import time
-
+from functools import reduce
+#Check if packages are installed, else install them
 print("Checking packages...")
 try:
   from sympy import solve
@@ -47,15 +48,18 @@ except:
 'numpy'])
   print("numpy not found... Filling requirement.")
 print("All packages found.")
+#Define running a file
 def run(runfile):
   with open(runfile,"r") as rnf:
     exec(rnf.read())
+#Import Libraries
 try:
   from sympy import solve
   import os  
   import requests
   import matplotlib.pyplot as plt
   import numpy as np
+  import ctypes
   from update_check import update
   from update_check import isUpToDate
   import urllib
@@ -67,10 +71,12 @@ try:
   import os.path
 except Exception as e:
   print(e)
+  #Failsafe if pip install does not work
   print("Did you install the requirements.txt?")
   time.sleep(5)
   quit()
 error95 = "Unable to reach update service! 95"
+#Defines Logging tools
 logging.basicConfig(filename="ZEF.log",
                     format='%(asctime)s %(message)s',
                     filemode='w')
@@ -80,7 +86,7 @@ logger = logging.getLogger()
  
 
 logger.setLevel(logging.DEBUG)
-
+#Catches exception and throws it to user before restarting
 def show_exception_and_exit(exc_type, exc_value, tb):
     import traceback
     
@@ -88,8 +94,14 @@ def show_exception_and_exit(exc_type, exc_value, tb):
     print("Fatal Error: -1")
     run("ZefRest.py")
     logger.critical(ectp)
-
+def isAdmin():
+    try:
+        is_admin = (os.getuid() == 0)
+    except AttributeError:
+        is_admin = ctypes.windll.shell32.IsUserAnAdmin() != 0
+    return is_admin
 sys.excepthook = show_exception_and_exit
+#(Check) Updates Zefroin
 seconds = 3
 betatest = False
 if betatest == False:
@@ -104,6 +116,7 @@ if betatest == False:
   else:
     print("No Updates! Or " + error95)
 seconds = 2
+#"Mounts" Zefroin (Meant to look cool :) ) 
 print("Mounting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.1)
@@ -115,8 +128,40 @@ seconds = 30
 print("Starting Zefroin...")
 for i in tqdm(range(seconds)):
     time.sleep(0.01)
-print("\033[1;33;40m Zefroin Shell 4.12 COPYRIGHT OF AZUREIAN")
-print("\033[1;33;40m Powered by Python!")
+#Defines for math
+def addition(*args):
+    newList = []
+    for i in inputList:
+        z = int(i)
+        newList.append(z)
+    NumbersSum = sum(newList)
+    return NumbersSum
+
+
+def subtraction(*args):
+    newList = []
+    for i in inputList:
+        z = int(i)
+        newList.append(z)
+    NumbersSub = newList[0] - sum(newList[1:])
+    return NumbersSub
+
+def multiplication(*args):
+    newList = []
+    for i in inputList:
+        z = int(i)
+        newList.append(z)
+    NumbersMult = reduce(lambda x, y: x*y, newList)
+    return NumbersMult
+
+def division(*args):
+    newList = []
+    for i in inputList:
+        z = int(i)
+        newList.append(z)
+    NumbersDiv = reduce(lambda x, y: x/y, newList)
+    return NumbersDiv
+#defining errors
 def error109():
   print("\033[1;31;40m No Statement provided! 109")
   logger.error("No Statement provided! 109")
@@ -127,6 +172,9 @@ error56a = 0
 def error32():
   print("\033[1;31;40m Unable to parse negative value! 32")
   logger.error("Unable to parse negative value! 32")
+def error99():
+  print("\033[1;31;40m Access privileges denied! 99")
+  logger.error("Access privileges denied! 99")
 def error18():
   print("\033[1;31;40m Value input can't be negative! 18")
   logger.error("Value input can't be negative! 18")
@@ -152,7 +200,7 @@ def error67():
 def error88():
   print("\033[1;31;40m Function Overload! Cannot convert string to Char! 88")
   logger.error("Function Overload! Cannot convert string to Char! 88")
-
+#defining for matplotlib
 def addlabels(x,y):
     for i in range(len(x)):
         plt.text(i, y[i], y[i], ha = 'center')
@@ -160,11 +208,14 @@ def valuelabel(x,y):
     for i in range(len(x)):
         plt.text(i,y[i],y[i], ha = 'center',
                  bbox = dict(facecolor = 'cyan', alpha =0.8))
+#defines error listing
 def deferror(errorcode):
   if errorcode == "109":
     error109()
   elif errorcode == "1":
     error1()
+  elif errorcode == "99":
+    error99()
   elif errorcode == "32":
     error32()
   elif errorcode == "18":
@@ -185,7 +236,9 @@ def deferror(errorcode):
     error88()
   else:
     print("No error code found!")
+#sets default name for console
 defaultnm = "~/Zef"
+#checks OS type for later features
 osname = sys.platform
 ostype = ""
 if osname == "linux":
@@ -197,12 +250,23 @@ elif osname == "Mac OS X":
 else:
   ostype = "Other"
 zfname = defaultnm
+#
+#
+# CODE STARTS HERE
+#
+#
+if !isAdmin():
+  print("Local Access Privileges Detected, some commands may be unavailable!")
+else:
+  print("Full Access Privileges Detected, all commands are available!")
+print("\033[1;33;40m Zefroin Shell 4.23 COPYRIGHT OF AZUREIAN")
+print("\033[1;33;40m Powered by Python!")
 while True:
     while True:
         
         zinput = input("\033[1;32;40m"+zfname+" >> ")
         if zinput == "help":
-            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nDownl - Downloads files from links\nzep install - Installs a package\nzf - Run selected package\nclear - Clears console\nsleep - Sleeps a certain amount of time\nerlist - Lists error\ncrash - What do you think it does?\nscatter - Plots a scatter plot\nlinegraph - Plots a line graph\nbargraph - Plots a bar graph\nsortalpha - Sorts alpha text files\nzimmer - Translate into Zimmerman note\ndir - Lists files in an area\ncd - Calls directory\nmkdir - Makes directory\nrndir - Renames directory\nrmdir - Removes directory\nwlkdir - Walks along a directory and sub-directory\n")
+            print("help - Opens Help\nprint - Prints a line\nloop - Loops a word for a certain amount\nmath - Simple Mathmatics\nkcal - Used for the trophic levels.\nend - Closes the terminal.\nupdate - Updates Zefroin\ngithub - Official github for Zefroin\nDownl - Downloads files from links\nzep install - Installs a package\nzf - Run selected package\nclear - Clears console\nsleep - Sleeps a certain amount of time\nerlist - Lists error\ncrash - What do you think it does?\nscatter - Plots a scatter plot\nlinegraph - Plots a line graph\nbargraph - Plots a bar graph\nsortalpha - Sorts alpha text files\nzimmer - Translates Zimmerman note\ndir - Lists files in an area\ncd - Calls directory\nmkdir - Makes directory\nrndir - Renames directory\nrmdir - Removes directory\nwlkdir - Walks along a directory and sub-directory\nrestart - Restarts Zefroin\nupcoming - Upcoming developer news\nwhoami - Lists current user\n")
         elif zinput == "print":
             prnt = input("Print >> ")
             print(prnt)
@@ -241,76 +305,34 @@ while True:
                     addtimes = addtimes + 1
                     print(loop)
         elif zinput == "math":
-            print("What operation?\n+\n-\n*\n/")
-            mathop = input("Math >> ")
-            mathoper = 0
-            if mathop == "+":
-                mathoper = 1
-                iftrue = 1
-            elif mathop == "-":
-                mathoper = 2
-                iftrue = 1
-            elif mathop == "*":
-                mathoper = 3
-                iftrue = 1
-            elif mathop == "/":
-                mathoper = 4
-                iftrue = 1
-            else:
-                mathoper = 5
-            if mathoper == 0:
-                errorunk()
-                iftrue = 0
-            elif mathoper == 5:
-                iftrue = 0
-                error45()
-            if iftrue == 1:
-                print("Number 1: ")
-                math1 = input("Math >> ")
-                print("Number 2: ")
-                math2 = input("Math >> ")
-                if math1.isnumeric() == False:
-                    error67()
-                    break
-                else:
-                    if math2.isnumeric() == False:
-                        error67()
-                        break
-                    else:
-                        math1i = int(math1)
-                        math2i = int(math2)
-                        mathp = math1i + math2i
-                        mathm = math1i - math2i
-                        mathmt = math1i * math2i
-                        mathd = math1i / math2i
-                        mathper = math1i % math2i
-                        if mathoper == 1:
-                            print(mathp)
-                            if mathp == 38:
-                                mathazure = str(mathp)
-                                print(mathazure + " Is Azureian's favorite number!")
-                            # +
-                        elif mathoper == 2:
-                            print(mathm)
-                            # -
-                        elif mathoper == 3:
-                            print(mathmt)
-                            if math1i == math2i:
-                                math1m = str(math1i)
-                                math2m = str(math2i)
-                                mathmt1 = str(mathmt)
-                                print(mathmt1 + " is the square of " + math1m + " and " + math2m)
-                            # *
-                        elif mathoper == 4:
-                            print(mathd)
-                            if mathd == math2i:
-                                mathds = str(mathd)
-                                math1s = str(math1i)
-                                print(mathds + " is the square root of " + math1s)
-                            # /
-                        
-                        else:
-                            errorunk()
+            print("Please enter your choice\n" +
+      "1 -> Addition\n" +
+      "2 -> Subtraction\n" +
+      "3 -> Multiplication\n" +
+      "4 -> Division\n")
+
+            choice = int(input("Enter your choice: "))
+            if 1 <= choice <= 4:
+              print("Please enter your values: ")
+              inputList = input().split()
+              #print(inputList)
+          
+          
+              if choice == 1:
+                  varList = addition(inputList)
+                  print("The sum of your inputs is: ", varList)
+              elif choice == 2:
+                  varList = subtraction(inputList)
+                  print("The difference of you inputs is: ", varList)
+              elif choice == 3:
+                  varList = multiplication(inputList)
+                  print("The product of your inputs is: ", varList)
+              elif choice == 4:
+                  varList = division(inputList)
+                  print("The quotient of your inputs is: ", varList)
+              else:
+                  not_valid = "{} is not a valid choice\n".format(choice)
+                  print(not_valid)
         elif zinput == "end":
             quit()
         elif zinput == "msdos":
@@ -321,7 +343,7 @@ while True:
               print("  | |  | |____) |     | |__| | |__| |____) |")
               print("  |_|  |_|_____/      |_____/ \____/|_____/ ")
               print("                                            ")
-              input("C:\>")
+              input("A>")
               print("Bad command or not swag enough")
         elif zinput == "kcal":
           print("How many Kcals?")
@@ -590,85 +612,164 @@ while True:
               print(data[i])
         elif zinput == "zimmer":
           zim = []
-          while True:
-            zimp = input("Add letter or type '.end'")
-            if zimp == ".end":
-                break
-            if zimp == "a" or zim == "A":
-              zim.append("DG")
-            elif zimp == "b" or zim == "B":
-              zim.append("AA")
-            elif zimp == "c" or zim == "C":
-              zim.append("DX")
-            elif zimp == "d" or zim == "D":
-              zim.append("FD")
-            elif zimp == "e" or zim == "E":
-              zim.append("AF")
-            elif zimp == "f" or zim == "F":
-              zim.append("FG")
-            elif zimp == "g" or zim == "G":
-              zim.append("FX")
-            elif zimp == "h" or zim == "H":
-              zim.append("GD")
-            elif zimp == "i" or zim == "I":
-              zim.append("DV")
-            elif zimp == "j" or zim == "J":
-              zim.append("GG")
-            elif zimp == "k" or zim == "K":
-              zim.append("GX")
-            elif zimp == "l" or zim == "L":
-              zim.append("AX")
-            elif zimp == "m" or zim == "M":
-              zim.append("VA")
-            elif zimp == "n" or zim == "N":
-              zim.append("DF")
-            elif zimp == "o" or zim == "O":
-              zim.append("VD")
-            elif zimp == "p" or zim == "P":
-              zim.append("VF")
-            elif zimp == "q" or zim == "Q":
-              zim.append("VG")
-            elif zimp == "r" or zim == "R":
-              zim.append("AV")
-            elif zimp == "s" or zim == "S":
-              zim.append("VV")
-            elif zimp == "t" or zim == "T":
-              zim.append("VX")
-            elif zimp == "u" or zim == "U":
-              zim.append("XA")
-            elif zimp == "v" or zim == "V":
-              zim.append("XD")
-            elif zimp == "w" or zim == "W":
-              zim.append("XF")
-            elif zimp == "x" or zim == "X":
-              zim.append("XG")
-            elif zimp == "y" or zim == "Y":
-              zim.append("XV")
-            elif zimp == "z" or zim == "Z":
-              zim.append("XX")
-            elif zimp == "1":
-              zim.append("DA")
-            elif zimp == "2":
-              zim.append("AD")
-            elif zimp == "3":
-              zim.append("FA")
-            elif zimp == "4":
-              zim.append("FF")
-            elif zimp == "5":
-              zim.append("AG")
-            elif zimp == "6":
-              zim.append("FV")
-            elif zimp == "7":
-              zim.append("GA")
-            elif zimp == "8":
-              zim.append("GF")
-            elif zimp == "9":
-              zim.append("DD")
-            elif zimp == "0":
-              zim.append("GV")
-            else:
-              error88()
-            print(zim)
+          a = input("1: To Zimmerman\n2: From Zimmerman\nPress 'Return' to cancel\nZimmer >> ")
+          if a == "1":
+            while True:
+              zimp = input("Add letter or type '.end'\nZimmer >> ")
+              if zimp == ".end":
+                  break
+              if zimp == "a" or zim == "A":
+                zim.append("DG")
+              elif zimp == "b" or zim == "B":
+                zim.append("AA")
+              elif zimp == "c" or zim == "C":
+                zim.append("DX")
+              elif zimp == "d" or zim == "D":
+                zim.append("FD")
+              elif zimp == "e" or zim == "E":
+                zim.append("AF")
+              elif zimp == "f" or zim == "F":
+                zim.append("FG")
+              elif zimp == "g" or zim == "G":
+                zim.append("FX")
+              elif zimp == "h" or zim == "H":
+                zim.append("GD")
+              elif zimp == "i" or zim == "I":
+                zim.append("DV")
+              elif zimp == "j" or zim == "J":
+                zim.append("GG")
+              elif zimp == "k" or zim == "K":
+                zim.append("GX")
+              elif zimp == "l" or zim == "L":
+                zim.append("AX")
+              elif zimp == "m" or zim == "M":
+                zim.append("VA")
+              elif zimp == "n" or zim == "N":
+                zim.append("DF")
+              elif zimp == "o" or zim == "O":
+                zim.append("VD")
+              elif zimp == "p" or zim == "P":
+                zim.append("VF")
+              elif zimp == "q" or zim == "Q":
+                zim.append("VG")
+              elif zimp == "r" or zim == "R":
+                zim.append("AV")
+              elif zimp == "s" or zim == "S":
+                zim.append("VV")
+              elif zimp == "t" or zim == "T":
+                zim.append("VX")
+              elif zimp == "u" or zim == "U":
+                zim.append("XA")
+              elif zimp == "v" or zim == "V":
+                zim.append("XD")
+              elif zimp == "w" or zim == "W":
+                zim.append("XF")
+              elif zimp == "x" or zim == "X":
+                zim.append("XG")
+              elif zimp == "y" or zim == "Y":
+                zim.append("XV")
+              elif zimp == "z" or zim == "Z":
+                zim.append("XX")
+              elif zimp == "1":
+                zim.append("DA")
+              elif zimp == "2":
+                zim.append("AD")
+              elif zimp == "3":
+                zim.append("FA")
+              elif zimp == "4":
+                zim.append("FF")
+              elif zimp == "5":
+                zim.append("AG")
+              elif zimp == "6":
+                zim.append("FV")
+              elif zimp == "7":
+                zim.append("GA")
+              elif zimp == "8":
+                zim.append("GF")
+              elif zimp == "9":
+                zim.append("DD")
+              elif zimp == "0":
+                zim.append("GV")
+            
+              print(zim)
+          elif a == "2":
+            while True:
+              zimp = input("Add Code or type '.end'\nZimmer >> ")
+              if zimp == ".end":
+                  break
+              if zimp == "DG" or zim == "dg":
+                zim.append("A")
+              elif zimp == "AA" or zim == "aa":
+                zim.append("B")
+              elif zimp == "DX" or zim == "dx":
+                zim.append("C")
+              elif zimp == "FD" or zim == "FD":
+                zim.append("D")
+              elif zimp == "AF" or zim == "af":
+                zim.append("E")
+              elif zimp == "FG" or zim == "fg":
+                zim.append("F")
+              elif zimp == "FX" or zim == "fx":
+                zim.append("G")
+              elif zimp == "GD" or zim == "gd":
+                zim.append("H")
+              elif zimp == "DV" or zim == "dv":
+                zim.append("I")
+              elif zimp == "GG" or zim == "gg":
+                zim.append("J")
+              elif zimp == "GX" or zim == "gx":
+                zim.append("K")
+              elif zimp == "AX" or zim == "ax":
+                zim.append("L")
+              elif zimp == "VA" or zim == "va":
+                zim.append("M")
+              elif zimp == "DF" or zim == "df":
+                zim.append("N")
+              elif zimp == "VD" or zim == "vd":
+                zim.append("O")
+              elif zimp == "VF" or zim == "vf":
+                zim.append("P")
+              elif zimp == "VG" or zim == "vg":
+                zim.append("Q")
+              elif zimp == "AV" or zim == "av":
+                zim.append("R")
+              elif zimp == "VV" or zim == "vv":
+                zim.append("S")
+              elif zimp == "VX" or zim == "vx":
+                zim.append("T")
+              elif zimp == "XA" or zim == "xa":
+                zim.append("U")
+              elif zimp == "XD" or zim == "xd":
+                zim.append("V")
+              elif zimp == "XF" or zim == "xf":
+                zim.append("W")
+              elif zimp == "XG" or zim == "xg":
+                zim.append("X")
+              elif zimp == "XV" or zim == "xv":
+                zim.append("Y")
+              elif zimp == "XX" or zim == "xx":
+                zim.append("Z")
+              elif zimp == "DA" or zimp == "da":
+                zim.append("1")
+              elif zimp == "AD" or zimp == "ad":
+                zim.append("2")
+              elif zimp == "FA" or zimp == "fa":
+                zim.append("3")
+              elif zimp == "FF" or zimp == "ff":
+                zim.append("4")
+              elif zimp == "AG" or zimp == "ag":
+                zim.append("5")
+              elif zimp == "FV" or zimp == "fv":
+                zim.append("6")
+              elif zimp == "GA" or zimp == "gv":
+                zim.append("7")
+              elif zimp == "GF" or zimp == "gf":
+                zim.append("8")
+              elif zimp == "DD" or zimp == "dd":
+                zim.append("9")
+              elif zimp == "GV" or zimp == "gv":
+                zim.append("0")
+              print(zim)
         elif zinput == "dir":
           der = os.listdir()
           print(der)
@@ -682,23 +783,32 @@ while True:
           os.chdir(der)
           zfname = der
         elif zinput == "mkdir":
-          der = input("Name? Or press return\nMk >> ")
-          os.mkdir(der)
-          print("Dir '"+der+"' Created.")
+          if isAdmin():
+            der = input("Name? Or press return\nMk >> ")
+            os.mkdir(der)
+            print("Dir '"+der+"' Created.")
+          else:
+            error99()
         elif zinput == "rndir":
-          nam1 = input("Dir name? Or press return\nRn >> ")
-          if nam1 == "" or nam1 == " ":
-            break
-          nam2 = input("New name?")
-          os.rename(nam1,nam2)
-          print("'"+nam1+"' Renamed to '"+nam2+"'")
+          if isAdmin():
+            nam1 = input("Dir name? Or press return\nRn >> ")
+            if nam1 == "" or nam1 == " ":
+              break
+            nam2 = input("New name?")
+            os.rename(nam1,nam2)
+            print("'"+nam1+"' Renamed to '"+nam2+"'")
+          else:
+            error99()
         elif zinput == "rmdir":
-          import shutil
-          nam1 = input("Dir name? Or press return\nRm >> ")
-          if nam1 == "" or nam1 == " ":
-            break
-          shutil.rmtree(nam1)
-          print("Deleted '"+nam1+"'")
+          if isAdmin():
+            import shutil
+            nam1 = input("Dir name? Or press return\nRm >> ")
+            if nam1 == "" or nam1 == " ":
+              break
+            shutil.rmtree(nam1)
+            print("Deleted '"+nam1+"'")
+          else:
+            error99()
         elif zinput == "wlkdir":
           nam1 = input("Dir name? Or press return\nWlk >> ")
           if nam1 == "" or nam1 == " ":
@@ -708,6 +818,10 @@ while True:
         elif zinput == "restart":
             run("ZefRest.py")
             quit()
+        elif zinput == "Upcoming":
+          print("Currently I am refining 'CD' to make it only 1 liner command.")
+        elif zinput == "whoami":
+          os.getlogin()
         else:
             error1()
 
